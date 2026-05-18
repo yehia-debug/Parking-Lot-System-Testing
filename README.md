@@ -1,12 +1,9 @@
-Here is the improved QA/testing-focused README version:
-
-````markdown
 # Parking Lot System Testing Project
 
 A complete software testing and quality assurance project performed on a C++ console-based Parking Lot Management System.
 
 This repository focuses on testing activities rather than application development.
- The project demonstrates practical QA engineering techniques including static review, automated testing, manual system testing, defect reporting, and full test documentation.
+The project demonstrates practical QA engineering techniques including static review, automated testing, manual system testing, defect reporting, and full test documentation.
 
 The testing process covered:
 
@@ -64,22 +61,22 @@ Dynamic testing was performed through both automated and manual execution:
 
 # Technologies and Tools Used
 
-| Technology / Tool   | Purpose                              |
-| ------------------- | ------------------------------------ |
-| C++                 | Tested application language          |
-| Visual Studio       | IDE and execution environment        |
-| Google Test (GTest) | Automated test execution             |
-| Google Mock (GMock) | Mock object interaction testing      |
-| nlohmann/json       | JSON file handling                   |
-| Git & GitHub        | Version control and project hosting  |
-| Excel               | Dynamic test execution logging       |
-| Microsoft Word      | QA documentation and reporting       |
+| Technology / Tool   | Purpose                             |
+| ------------------- | ----------------------------------- |
+| C++                 | Tested application language         |
+| Visual Studio       | IDE and execution environment       |
+| Google Test (GTest) | Automated test execution            |
+| Google Mock (GMock) | Mock object interaction testing     |
+| nlohmann/json       | JSON file handling                  |
+| Git & GitHub        | Version control and project hosting |
+| Excel               | Dynamic test execution logging      |
+| Microsoft Word      | QA documentation and reporting      |
 
 ---
 
 # Repository Structure
 
-```text
+```
 Parking Lot System/
 │
 ├── Parking Lot System.sln
@@ -95,7 +92,7 @@ Parking Lot System/
 │
 ├── parking.json
 └── README.md
-````
+```
 
 ---
 
@@ -163,7 +160,7 @@ Automated tests were implemented using Google Test and Google Mock.
 
 ### Example GTest Case
 
-```cpp
+```
 TEST_F(ParkingServiceTest, TC_PV_01_ParkValidVehicle) {
     int slotId = service.parkVehicle("ABC123");
 
@@ -214,14 +211,15 @@ This repository contains complete QA/testing artifacts:
 ## Steps
 
 1. Clone or download the repository
+
 2. Open:
 
-```text
-Parking Lot System.sln
-```
+   Parking Lot System.sln
 
 3. Restore NuGet packages if needed
+
 4. Build the solution
+
 5. Run the application
 
 ---
@@ -229,20 +227,20 @@ Parking Lot System.sln
 # Running Automated Tests
 
 1. Open the solution in Visual Studio
+
 2. Open:
 
-```text
-Test → Test Explorer
-```
+   Test → Test Explorer
 
 3. Build the test project
+
 4. Run all tests
 
 ---
 
 # Sample JSON Test Data
 
-```json
+```
 {
   "slots": [
     { "id": 1, "isAvailable": true },
@@ -284,6 +282,3 @@ Test → Test Explorer
 # Project Purpose
 
 This repository was created to demonstrate practical software testing, QA engineering, and test automation skills using a real C++ application and a complete end-to-end testing workflow.
-
-```
-```
