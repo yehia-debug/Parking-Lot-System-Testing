@@ -1,0 +1,20 @@
+sequenceDiagram
+autonumber
+actor Attendant as Parking Attendant
+participant ParkingConsole
+participant ParkingService
+participant ParkingRepository
+participant ParkingJson as "parking.json"
+
+
+Attendant->>ParkingConsole: Select "Search Vehicle"
+ParkingConsole->>Attendant: Prompt for license plate
+Attendant-->>ParkingConsole: plate
+ParkingConsole->>ParkingService: searchVehicle(plate)
+alt vehicle found
+  ParkingService-->>ParkingConsole: slotId
+  ParkingConsole-->>Attendant: Display slot assignment
+else vehicle not found
+  ParkingService-->>ParkingConsole: not found
+  ParkingConsole-->>Attendant: Display error message
+end

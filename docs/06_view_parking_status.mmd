@@ -1,0 +1,21 @@
+sequenceDiagram
+autonumber
+actor Attendant as Parking Attendant
+participant ParkingConsole
+participant ParkingService
+participant ParkingRepository
+participant ParkingJson as "parking.json"
+
+
+Attendant->>ParkingConsole: Select "View Parking Status"
+ParkingConsole->>ParkingService: getSlots()
+ParkingService-->>ParkingConsole: all slots
+loop for each slot
+  ParkingConsole->>ParkingService: getVehicleBySlot(slotId)
+  alt slot occupied
+    ParkingService-->>ParkingConsole: vehicle details
+  else slot available
+    ParkingService-->>ParkingConsole: no vehicle
+  end
+end
+ParkingConsole-->>Attendant: Display all slots with availability and vehicle info

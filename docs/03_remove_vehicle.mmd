@@ -1,0 +1,29 @@
+sequenceDiagram
+autonumber
+actor Attendant as Parking Attendant
+participant ParkingConsole
+participant ParkingService
+participant ParkingRepository
+participant ParkingJson as "parking.json"
+
+Attendant->>ParkingConsole: Select "Remove Vehicle"
+ParkingConsole->>Attendant: Prompt for license plate or slot ID
+Attendant-->>ParkingConsole: removal input
+alt remove by license plate
+  ParkingConsole->>ParkingService: removeVehicleByPlate(plate)
+else remove by slot ID
+  ParkingConsole->>ParkingService: removeVehicleBySlot(slotId)
+end
+alt matching vehicle found
+  ParkingService->>ParkingService: free associated slot
+  ParkingService->>ParkingService: remove vehicle record
+  ParkingService-->>ParkingConsole: removal success
+  ParkingConsole->>ParkingRepository: saveAll(getSlots(), getVehicles())
+  ParkingRepository->>ParkingJson: write updated slots and vehicles
+  ParkingJson-->>ParkingRepository: persisted
+  ParkingRepository-->>ParkingConsole: save complete
+  ParkingConsole-->>Attendant: Display success
+else invalid plate or slot ID
+  ParkingService-->>ParkingConsole: removal failure
+  ParkingConsole-->>Attendant: Display error message
+end

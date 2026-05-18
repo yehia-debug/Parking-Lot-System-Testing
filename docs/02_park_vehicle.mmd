@@ -1,0 +1,30 @@
+sequenceDiagram
+autonumber
+actor Attendant as Parking Attendant
+participant ParkingConsole
+participant ParkingService
+participant ParkingRepository
+participant ParkingJson as "parking.json"
+
+
+
+Attendant->>ParkingConsole: Select "Park Vehicle"
+ParkingConsole->>Attendant: Prompt for license plate
+Attendant-->>ParkingConsole: plate
+ParkingConsole->>ParkingService: parkVehicle(plate)
+ParkingService->>ParkingService: validatePlate(plate)
+ParkingService->>ParkingService: isDuplicateVehicle(plate)
+ParkingService->>ParkingService: hasAvailableSlot()
+alt valid plate and slot available
+  ParkingService->>ParkingService: assign first available slot
+  ParkingService->>ParkingService: mark slot occupied
+  ParkingService-->>ParkingConsole: assigned slotId
+  ParkingConsole->>ParkingRepository: saveAll(getSlots(), getVehicles())
+  ParkingRepository->>ParkingJson: write updated slots and vehicles
+  ParkingJson-->>ParkingRepository: persisted
+  ParkingRepository-->>ParkingConsole: save complete
+  ParkingConsole-->>Attendant: Display assigned slot and success
+else invalid input, duplicate plate, or no available slot
+  ParkingService-->>ParkingConsole: parking failure
+  ParkingConsole-->>Attendant: Display error message
+end

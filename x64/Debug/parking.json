@@ -1,0 +1,20 @@
+{
+  "slots": [
+    { "id": 1, "isAvailable": true },
+    { "id": 2, "isAvailable": true },
+    { "id": 3, "isAvailable": true },
+    { "id": 4, "isAvailable": true },
+    { "id": 5, "isAvailable": true }
+  ],
+
+  "vehicles": [
+    { "plate": "ABC123", "slotId": 1 },
+    { "plate": "XYZ789", "slotId": 2 },
+
+    { "plate": "", "slotId": 3 },
+
+    { "plate": "ABC123", "slotId": 4 },
+
+    { "plate": "CAR777", "slotId": 99 }
+  ]
+}

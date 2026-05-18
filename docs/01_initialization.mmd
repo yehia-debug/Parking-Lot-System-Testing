@@ -1,0 +1,27 @@
+sequenceDiagram
+autonumber
+actor Attendant as Parking Attendant
+participant ParkingConsole
+participant ParkingService
+participant ParkingRepository
+participant ParkingJson as "parking.json"
+
+
+ParkingConsole->>ParkingRepository: loadSlots()
+alt parking.json exists
+  ParkingRepository->>ParkingJson: read slots array
+  ParkingJson-->>ParkingRepository: slot records
+  ParkingRepository-->>ParkingConsole: slots
+else file missing
+  ParkingRepository-->>ParkingConsole: empty slot list
+end
+ParkingConsole->>ParkingRepository: loadVehicles()
+alt parking.json exists
+  ParkingRepository->>ParkingJson: read vehicles array
+  ParkingJson-->>ParkingRepository: vehicle records
+  ParkingRepository-->>ParkingConsole: vehicles
+else file missing
+  ParkingRepository-->>ParkingConsole: empty vehicle list
+end
+ParkingConsole->>ParkingService: initialize(slots, vehicles)
+ParkingService-->>ParkingConsole: ready with in-memory parking state

@@ -1,0 +1,13 @@
+sequenceDiagram
+autonumber
+actor Attendant as Parking Attendant
+participant ParkingConsole
+participant ParkingService
+participant ParkingRepository
+participant ParkingJson as "parking.json"
+
+
+Attendant->>ParkingConsole: Select "View Available Slots"
+ParkingConsole->>ParkingService: getAvailableSlots()
+ParkingService-->>ParkingConsole: available slots
+ParkingConsole-->>Attendant: Display all available slot IDs

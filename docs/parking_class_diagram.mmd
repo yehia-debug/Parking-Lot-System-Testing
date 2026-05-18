@@ -1,0 +1,67 @@
+classDiagram
+direction LR
+
+class ParkingConsole {
+  -ParkingService& service
+  -ParkingRepository& repository
+  +run() void
+  +showMenu() void
+  +initializeSystem() void
+  +parkVehicle() void
+  +removeVehicle() void
+  +viewAvailableSlots() void
+  +searchVehicle() void
+  +viewParkingStatus() void
+  +readInt(prompt: string) int
+  +readString(prompt: string) string
+}
+
+class ParkingService {
+  -vector~Slot~ slots
+  -vector~Vehicle~ vehicles
+  +initialize(slots: vector~Slot~, vehicles: vector~Vehicle~) void
+  +parkVehicle(plate: string) int
+  +removeVehicleByPlate(plate: string) bool
+  +removeVehicleBySlot(slotId: int) bool
+  +getAvailableSlots() vector~Slot~
+  +searchVehicle(plate: string) int
+  +getSlots() vector~Slot~
+  +getVehicleBySlot(slotId: int) Vehicle*
+  +getVehicles() vector~Vehicle~
+  +isDuplicateVehicle(plate: string) bool
+  +slotExists(slotId: int) bool
+  +isSlotAvailable(slotId: int) bool
+  +hasAvailableSlot() bool
+  +validatePlate(plate: string) bool
+}
+
+class ParkingRepository {
+  -string filePath
+  +ParkingRepository(filePath: string = "parking.json")
+  +loadSlots() vector~Slot~
+  +loadVehicles() vector~Vehicle~
+  +saveAll(slots: vector~Slot~, vehicles: vector~Vehicle~) void
+  +fileExists() bool
+}
+
+class Slot {
+  +int id
+  +bool isAvailable
+}
+
+class Vehicle {
+  +string plate
+  +int slotId
+}
+
+ParkingConsole --> ParkingService : uses
+ParkingConsole --> ParkingRepository : loads/saves state
+ParkingService *-- Slot : manages
+ParkingService *-- Vehicle : manages
+ParkingRepository ..> Slot : serializes
+ParkingRepository ..> Vehicle : serializes
+Vehicle --> Slot : occupies by slotId
+
+note for ParkingConsole "Presentation layer only.\nHandles menu flow, prompts, and user feedback."
+note for ParkingService "Logic layer only.\nOwns in-memory parking state, validation,\nslot assignment, and consistency rules.\nIndependent from file and UI dependencies for testability."
+note for ParkingRepository "Data layer only.\nReads/writes local parking.json using nlohmann/json.\nReturns empty state when the file is missing."

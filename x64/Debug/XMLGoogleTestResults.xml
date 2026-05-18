@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="26" failures="3" disabled="0" errors="0" time="0.004" timestamp="2026-05-13T03:43:47.035" name="AllTests">
+  <testsuite name="ParkingServiceTest" tests="24" failures="3" disabled="0" skipped="0" errors="0" time="0.001" timestamp="2026-05-13T03:43:47.035">
+    <testcase name="TC_PV_01_ParkValidVehicle" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.035" classname="ParkingServiceTest" />
+    <testcase name="TC_PV_02_RejectEmptyLicensePlate" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.035" classname="ParkingServiceTest" />
+    <testcase name="TC_PV_02_InvalidPlateFormatShouldBeRejected" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.035" classname="ParkingServiceTest">
+      <failure message="E:\temp\softesttesting\lastcode\SWTDemoProjects-main\ParkingLotTests\test.cpp:255&#x0A;Expected equality of these values:&#x0A;  slotId&#x0A;    Which is: 1&#x0A;  0" type=""><![CDATA[E:\temp\softesttesting\lastcode\SWTDemoProjects-main\ParkingLotTests\test.cpp:255
+Expected equality of these values:
+  slotId
+    Which is: 1
+  0]]></failure>
+    </testcase>
+    <testcase name="TC_PV_03_RejectDuplicateVehicle" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.035" classname="ParkingServiceTest" />
+    <testcase name="TC_PV_04_RejectParkingWhenFull" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.035" classname="ParkingServiceTest" />
+    <testcase name="TC_RV_03_RejectNonexistentPlate" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.035" classname="ParkingServiceTest" />
+    <testcase name="TC_RV_04_RejectNonexistentSlotID" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.035" classname="ParkingServiceTest" />
+    <testcase name="TC_SV_01_SearchExistingVehicle" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.035" classname="ParkingServiceTest" />
+    <testcase name="TC_SV_02_SearchNonexistentVehicle" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.035" classname="ParkingServiceTest" />
+    <testcase name="TC_SV_03_SearchUsingDifferentCase" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.035" classname="ParkingServiceTest" />
+    <testcase name="TC_IN_01_LoadParkingSlotsAndVehicleRecords" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest" />
+    <testcase name="TC_IN_02_LoadSlotDataWithoutParkedVehicles" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest" />
+    <testcase name="TC_IN_03_StartupWhenParkingJsonIsMissing" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest">
+      <failure message="E:\temp\softesttesting\lastcode\SWTDemoProjects-main\ParkingLotTests\test.cpp:372&#x0A;Expected: (service.getSlots().size()) &gt; (0), actual: 0 vs 0" type=""><![CDATA[E:\temp\softesttesting\lastcode\SWTDemoProjects-main\ParkingLotTests\test.cpp:372
+Expected: (service.getSlots().size()) > (0), actual: 0 vs 0]]></failure>
+    </testcase>
+    <testcase name="TC_PV_05_AssignedSlotBecomesOccupied" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest" />
+    <testcase name="TC_RV_01_RemoveVehicleByPlate" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest" />
+    <testcase name="TC_RV_02_RemoveVehicleBySlotID" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest" />
+    <testcase name="TC_VS_01_DisplayAvailableSlots" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest" />
+    <testcase name="TC_VS_02_OccupiedSlotsExcluded" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest" />
+    <testcase name="TC_VS_03_FullParkingLotBehavior" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest" />
+    <testcase name="TC_PS_01_DisplayAllSlotStatuses" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest" />
+    <testcase name="TC_PS_02_DisplayVehicleInformation" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest" />
+    <testcase name="TC_PS_03_StatusAfterParking" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest" />
+    <testcase name="TC_PS_04_StatusAfterRemoval" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest" />
+    <testcase name="TC_RV_01_NumericPlateCanBeConfusedWithSlotID" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.036" classname="ParkingServiceTest">
+      <failure message="E:\temp\softesttesting\lastcode\SWTDemoProjects-main\ParkingLotTests\test.cpp:479&#x0A;Value of: numericPlateAmbiguityResolved&#x0A;  Actual: false&#x0A;Expected: true" type=""><![CDATA[E:\temp\softesttesting\lastcode\SWTDemoProjects-main\ParkingLotTests\test.cpp:479
+Value of: numericPlateAmbiguityResolved
+  Actual: false
+Expected: true]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="ParkingServiceMockTest" tests="2" failures="0" disabled="0" skipped="0" errors="0" time="0.002" timestamp="2026-05-13T03:43:47.036">
+    <testcase name="Mock_NotifyParkedCalled" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.038" classname="ParkingServiceMockTest" />
+    <testcase name="Mock_NotifyRemovedCalled" status="run" result="completed" time="0" timestamp="2026-05-13T03:43:47.038" classname="ParkingServiceMockTest" />
+  </testsuite>
+</testsuites>
